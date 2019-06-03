@@ -16,6 +16,8 @@ eureka:
       defaultZone: http://eureka1:7001/eureka/
       
 ---
+server:
+  port: 8202
 spring:
   profiles: test
   application:
@@ -25,6 +27,8 @@ eureka:
     service-url:
       defaultZone: http://eureka1:7001/eureka/
 ---
+server:
+  port: 8203
 spring:
   profiles: toni
   application:
