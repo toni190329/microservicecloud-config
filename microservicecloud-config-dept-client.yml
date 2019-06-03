@@ -1,0 +1,84 @@
+spring:
+  profiles:
+    active:
+    - dev
+    
+---
+server:
+  port: 8001
+  
+mybatis:
+  config-location: classpath:mybatis/mybatis.cfg.xml   #mybatis配置文件所在路径
+  type-aliases-package: com.jbit.entity                #所有entity别名类所在包
+  mapper-locations:
+  - classpath:mybatis/mapper/**/*.xml                  #mapper映射文件
+  
+spring:
+  profiles: dev
+  application:
+    name: microservicecloud-dept                      #非常重要，此服务就是暴露在外的微服务名字
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource      #当前数据源操作类型
+    driver-class-name: org.gjt.mm.mysql.Driver         #配置驱动包这个是老的配置法,新的是com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/cloudDB01?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    username: root
+    password: accp
+    dbcp2:
+      min-idle: 5                                     #数据库连接池最小维持连接数
+      initial-size: 5                                 #初始化连接数
+      max-total: 5                                    #最大连接数
+      max-wait-millis: 200                            #等待连接获取，最大超时时间
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka1:7001/eureka/
+  instance:
+    instance-id: microservicecloud-dept-config-8001
+    prefer-ip-address: true    #访问路径显示ip地址
+    
+info:
+  app.name: com.jbit
+  company.name: whcm
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$
+  ---
+  server:
+  port: 8001
+  
+mybatis:
+  config-location: classpath:mybatis/mybatis.cfg.xml   #mybatis配置文件所在路径
+  type-aliases-package: com.jbit.entity                #所有entity别名类所在包
+  mapper-locations:
+  - classpath:mybatis/mapper/**/*.xml                  #mapper映射文件
+  
+spring:
+  profiles: dev
+  application:
+    name: microservicecloud-dept                      #非常重要，此服务就是暴露在外的微服务名字
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource      #当前数据源操作类型
+    driver-class-name: org.gjt.mm.mysql.Driver         #配置驱动包这个是老的配置法,新的是com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/cloudDB02?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    username: root
+    password: accp
+    dbcp2:
+      min-idle: 5                                     #数据库连接池最小维持连接数
+      initial-size: 5                                 #初始化连接数
+      max-total: 5                                    #最大连接数
+      max-wait-millis: 200                            #等待连接获取，最大超时时间
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka1:7001/eureka/
+  instance:
+    instance-id: microservicecloud-dept-config-8001
+    prefer-ip-address: true    #访问路径显示ip地址
+    
+info:
+  app.name: com.jbit
+  company.name: whcm
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$
+    
