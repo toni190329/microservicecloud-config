@@ -59,7 +59,7 @@ spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource      #当前数据源操作类型
     driver-class-name: org.gjt.mm.mysql.Driver         #配置驱动包这个是老的配置法,新的是com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/cloudDB02?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/cloudDB03?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
     username: root
     password: accp
     dbcp2:
